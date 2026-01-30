@@ -16,9 +16,7 @@ This repository contains a public example of an analysis evaluating the **predic
 ### How to view the report
 The full rendered report is available via **GitHub Pages**:
 
-→ [View the live report](https://your-org-name.github.io/your-repo-name/)
-
-(Replace the link above with the actual GitHub Pages URL after publishing.)
+→ [View the live report][(https://your-org-name.github.io/your-repo-name/)](https://ax-consult-group.github.io/psychometrics-DRA-candidate-outcomes/)
 
 ### Technologies used
 - Quarto for reproducible reporting
