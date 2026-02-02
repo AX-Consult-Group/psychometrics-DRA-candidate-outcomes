@@ -13,7 +13,7 @@ This repository contains a public example of an analysis evaluating the **predic
 - **Dimension names** have been generalised or renamed to protect intellectual property. The underlying constructs and relationships remain representative.
 - Minor differences in subgroup averages or model performance compared to the original analysis are expected due to simulation noise.
 
-![Infographic: Desgin & Insights Overview](Infographic Analysis.png)
+![Infographic: Design & Insights Overview]([Infographic Analysis.png](https://github.com/AX-Consult-Group/psychometrics-DRA-candidate-outcomes/blob/main/Infographic%20Analysis.png?raw=true)
 
 ### How to view the report
 The full rendered report is available via **GitHub Pages**:
