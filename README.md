@@ -19,8 +19,34 @@ The full rendered report is available via **GitHub Pages**:
 → [View the live report][(https://your-org-name.github.io/your-repo-name/)](https://ax-consult-group.github.io/psychometrics-DRA-candidate-outcomes/)
 
 ### Technologies used
-- Quarto for reproducible reporting
-- R (tidyverse, ggplot2, randomForest, caret, pROC, smotefamily, etc.)
-- Simulated data generation via copula and conditional sampling
+The analysis was conducted in R using the following packages:
+
+### Data manipulation & pipelines
+- tidyverse
+- dplyr
+
+### Data import & export
+- readxl
+- writexl
+
+### Analysis
+- psych
+- lavaan
+- smotefamily
+- caret
+- pROC
+- randomForest
+- copula
+
+### Visualisation & reporting
+- ggplot2
+- RColorBrewer
+- jtools
+- knitr
+- ggcorrplot
+
+R version 4.5.2 (2025-10-31)
+RStudio Version 2026.01.0+392 
+
 ---
 *Last updated: January 2026*
