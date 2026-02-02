@@ -15,10 +15,36 @@ format:
 ---
 
 ::: {.text-center style="margin-bottom: 2em;"}
-![](fig/company-logo.png){width="180px"}
+![](company-logo.png){width="180" fig-align="center"}
 :::
 
-# Psychometrics – Candidate Outcomes Analysis (Public Demo)
+<style>
+/* Justify only paragraphs (and list items for consistency) */
+p, li {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+}
+
+/* Optional: Slightly improve line spacing */
+p {
+    line-height: 1.6;
+}
+
+/* Keep headings, code, tables, etc. left-aligned */
+h1, h2, h3, h4, h5, h6,
+pre, code, table, th, td,
+blockquote {
+    text-align: left;
+}
+
+/* Ensure white background */
+body {
+    background-color: white;
+}
+</style>
+
 
 This report presents an example analysis of how psychometric assessment scores from the **Dynamic Risk Assessment (DRA)** relate to real-world employment and placement outcomes.
 
@@ -721,14 +747,6 @@ Employment_dimension_summary_long <- Employment_dimension_summary %>%
 ggplot(Employment_dimension_summary_long, 
        aes(x = Dimensions, y = Mean_Score, fill = Current_Employment_Status)) +
   geom_bar(stat = "identity", position = position_dodge(width = 0.9)) +
-  geom_text(
-    aes(label = round(Mean_Score, 2),
-        y = Mean_Score / 2),          # place in middle of bar
-    position = position_dodge(width = 0.9),
-    color = "white",                  # white text for contrast
-    fontface = "bold",
-    size = 3.5
-  ) +
   labs(x = "DRA Dimensions", y = "Mean Risk Score", 
        title = "Mean DRA Dimension Risk Scores by Employment Status") +
   theme_minimal() +
