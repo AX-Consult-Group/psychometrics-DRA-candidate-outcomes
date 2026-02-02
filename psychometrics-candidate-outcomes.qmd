@@ -1,5 +1,5 @@
 ---
-title: "psychometrics-candidate-outcomes"
+title: "Psychometric Risk Assessment: Employment & Placement Outcomes"
 authors: Caitlin Buenk, Tilabo Williamson, and Jurgen Becker - AX Consult Group. 
 format:
   html:
@@ -13,6 +13,10 @@ format:
     fig-height: 5
     output-dir: docs
 ---
+
+::: {.text-center style="margin-bottom: 2em;"}
+![](fig/company-logo.png){width="180px"}
+:::
 
 # Psychometrics – Candidate Outcomes Analysis (Public Demo)
 
@@ -60,7 +64,7 @@ The primary goal of this analysis is to evaluate the **predictive validity** of 
 
 ```{r}
 library(pacman)
-p_load(dplyr, readxl, writexl, haven, ggplot2, tidyr, lavaan, psych, broom, tidyverse, knitr, ggcorrplot, jtools, Hmisc, rempsyc, RColorBrewer, smotefamily, caret, pROC, themis, recipes, yardstick, randomForest, copula, reshape2, stringr) 
+p_load(dplyr, readxl, writexl, ggplot2, tidyr, lavaan, psych, tidyverse, knitr, ggcorrplot, jtools, Hmisc, rempsyc, RColorBrewer, smotefamily, caret, pROC, themis, recipes, yardstick, randomForest, copula, reshape2, stringr) 
 
 raw_data <- readxl::read_excel("simulated_candidate_data.xlsx")
 dim(raw_data)
@@ -228,20 +232,12 @@ ggplot(raw_data,
            fill = Placement_Contract_Completion)) +
    geom_boxplot(outlier.shape = NA, 
                 width = 0.55,
-                color = "grey30") +
+                color = "grey") +
   labs(
     title = "Composite Risk Score Distribution: Placement Contract Completion",
     subtitle = "Higher scores indicate greater overall risk",
     x = "Placement Contract Completion",
     y = "Composite Risk Score"
-  ) +
-  geom_jitter(
-    aes(color = "grey50"),
-    width = 0.15, 
-    height = 0,
-    alpha = 0.4, 
-    size = 2.2,
-    shape = 16
   ) +
   theme_minimal(base_size = 14) +
   theme(
@@ -264,11 +260,12 @@ ggplot(raw_data,
     panel.border = element_rect(colour = "grey80", fill = NA, linewidth = 0.5),
   ) +
   
- scale_fill_manual(values = c(
-    "No"  = "#8D9AA3",     
-    "Yes" = "#5DA399",
-    "In progress" = "#16A085"  
+   scale_fill_manual(values = c(
+    "No"  = "#6A1B9A",     
+    "Yes" = "#9A4EAE",
+    "In progress" = "#F3E5F5"
   )) +
+  
   
   # Slight y-axis expansion for better spacing
   scale_y_continuous(expand = expansion(mult = c(0.05, 0.1)))
@@ -316,20 +313,12 @@ ggplot(raw_data,
            fill = Specialised_Training_Completion)) +
    geom_boxplot(outlier.shape = NA, 
                 width = 0.55,
-                color = "grey30") +
+                color = "grey") +
   labs(
     title = "Composite Risk Score Distribution: Specialised Training Completion",
     subtitle = "Higher scores indicate greater overall risk",
     x = "Specialised Training Completion",
     y = "Composite Risk Score"
-  ) +
-  geom_jitter(
-    aes(color = "grey50"),
-    width = 0.15, 
-    height = 0,
-    alpha = 0.4, 
-    size = 2.2,
-    shape = 16
   ) +
   theme_minimal(base_size = 14) +
   theme(
@@ -353,8 +342,8 @@ ggplot(raw_data,
   ) +
   
  scale_fill_manual(values = c(
-    "No"  = "#8D9AA3",     
-    "Yes" = "#5DA399"     
+    "No"  = "#6A1B9A",     
+    "Yes" = "#9A4EAE"     
   )) +
   
   # Slight y-axis expansion for better spacing
@@ -410,20 +399,12 @@ ggplot(raw_data,
            fill = Current_Employment_Status)) +
    geom_boxplot(outlier.shape = NA, 
                 width = 0.55,
-                color = "grey30") +
+                color = "grey") +
   labs(
     title = "Composite Risk Score Distribution: Current Employment Status",
     subtitle = "Higher scores indicate greater overall risk",
     x = "Current Employment Status",
     y = "Composite Risk Score"
-  ) +
-  geom_jitter(
-    aes(color = "grey50"),
-    width = 0.15, 
-    height = 0,
-    alpha = 0.4, 
-    size = 2.2,
-    shape = 16
   ) +
   theme_minimal(base_size = 14) +
   theme(
@@ -447,7 +428,7 @@ ggplot(raw_data,
   ) +
   
  scale_fill_manual(values = c(
-    "Unemployed"  = "#8D9AA3", "Full_time" = "#5DA399", "Part_time" = "#16A085","Temporary_Contract" = "#8E44AD")) +
+    "Unemployed"  = "#6A1B9A", "Full_time" = "#9A4EAE", "Part_time" = "#F3E5F5","Temporary_Contract" = "#7E57C2")) +
   
   # Slight y-axis expansion for better spacing
   scale_y_continuous(expand = expansion(mult = c(0.05, 0.1)))
@@ -496,20 +477,12 @@ ggplot(raw_data,
            fill = Absorbed_Host_Company)) +
    geom_boxplot(outlier.shape = NA, 
                 width = 0.55,
-                color = "grey30") +
+                color = "grey") +
   labs(
     title = "Composite Risk Score Distribution: Absorbed by Host Company",
     subtitle = "Higher scores indicate greater overall risk",
     x = "Absorbed by Host Company",
     y = "Composite Risk Score"
-  ) +
-  geom_jitter(
-    aes(color = "grey50"),
-    width = 0.15, 
-    height = 0,
-    alpha = 0.4, 
-    size = 2.2,
-    shape = 16
   ) +
   theme_minimal(base_size = 14) +
   theme(
@@ -533,8 +506,8 @@ ggplot(raw_data,
   ) +
   
  scale_fill_manual(values = c(
-    "No"  = "#8D9AA3",     
-    "Yes" = "#5DA399"     
+    "No"  = "#6A1B9A",     
+    "Yes" = "#9A4EAE"     
   )) +
   
   # Slight y-axis expansion for better spacing
@@ -583,20 +556,12 @@ ggplot(raw_data,
            fill = Further_Studies)) +
    geom_boxplot(outlier.shape = NA, 
                 width = 0.55,
-                color = "grey30") +
+                color = "grey") +
   labs(
     title = "Composite Risk Score Distribution: Further Studies",
     subtitle = "Higher scores indicate greater overall risk",
     x = "Further Studies",
     y = "Composite Risk Score"
-  ) +
-  geom_jitter(
-    aes(color = "grey50"),
-    width = 0.15, 
-    height = 0,
-    alpha = 0.4, 
-    size = 2.2,
-    shape = 16
   ) +
   theme_minimal(base_size = 14) +
   theme(
@@ -620,8 +585,8 @@ ggplot(raw_data,
   ) +
   
  scale_fill_manual(values = c(
-    "No"  = "#8D9AA3",     
-    "Yes" = "#5DA399"     
+    "No"  = "#6A1B9A",     
+    "Yes" = "#9A4EAE"     
   )) +
   
   # Slight y-axis expansion for better spacing
@@ -641,8 +606,14 @@ PC_dimension_summary <- raw_data %>%
     `Uncertainty` = mean(Uncertainty, na.rm = TRUE)
     )
 
+# Transpose: dimensions as rows, groups as columns
+PC_dimension_summary_t <- PC_dimension_summary %>%
+  column_to_rownames(var = "Placement_Contract_Completion") %>% 
+  t() %>% 
+  as.data.frame()
+
 kable(
-  PC_dimension_summary,
+  PC_dimension_summary_t,
   digits = 2,                  
   caption = "Placement Contract Completion: Mean DRA Dimension Scores"
 )
@@ -667,10 +638,10 @@ theme_minimal() +
         panel.grid.major = element_blank(), panel.grid.minor = element_blank(), 
         axis.text.x = element_text(angle = 45, hjust = 1)) + 
   scale_fill_manual(values = c(
-  "No"       = "#7F8C8D",     
-  "Yes"      = "#27AE60",     
-  "In progress" = "#16A085"  
-))
+    "No"  = "#6A1B9A",     
+    "Yes" = "#9A4EAE",
+    "In progress" = "#F3E5F5"
+  ))
 ```
 
 ```{r}
@@ -684,8 +655,14 @@ STC_dimension_summary <- raw_data %>%
     `Uncertainty` = mean(Uncertainty, na.rm = TRUE)
     )
 
+# Transpose: dimensions as rows, groups as columns
+STC_dimension_summary_t <- STC_dimension_summary %>%
+  column_to_rownames(var = "Specialised_Training_Completion") %>% 
+  t() %>% 
+  as.data.frame()
+
 kable(
-  STC_dimension_summary,
+  STC_dimension_summary_t,
   digits = 2,                  
   caption = "Specialised Training Completion: Mean DRA Dimension Scores"
 )
@@ -709,7 +686,7 @@ theme_minimal() +
         plot.title = element_text(hjust = 0.5, face = "bold"),
         panel.grid.major = element_blank(), panel.grid.minor = element_blank(), 
         axis.text.x = element_text(angle = 45, hjust = 1)) + 
-  scale_fill_manual(values = c("No" = "#7F8C8D", "Yes" = "#27AE60"))
+  scale_fill_manual(values = c("No"  = "#6A1B9A", "Yes" = "#9A4EAE"))
 ```
 
 ```{r}
@@ -723,12 +700,17 @@ Employment_dimension_summary <- raw_data %>%
     `Uncertainty` = mean(Uncertainty, na.rm = TRUE)
     )
 
+# Transpose: dimensions as rows, groups as columns
+Employment_dimension_summary_t <- Employment_dimension_summary %>%
+  column_to_rownames(var = "Current_Employment_Status") %>%  # make group column as row names
+  t() %>%  # transpose
+  as.data.frame()
+
 kable(
-  Employment_dimension_summary,
+  Employment_dimension_summary_t,
   digits = 2,                  
   caption = "Current Employment Status: Mean DRA Dimension Scores"
 )
-
 
 Employment_dimension_summary_long <- Employment_dimension_summary %>%
   pivot_longer(cols = c(2:6), 
@@ -736,25 +718,31 @@ Employment_dimension_summary_long <- Employment_dimension_summary %>%
                values_to = "Mean_Score") %>% 
   dplyr::mutate(Dimensions = as.factor(Dimensions))
 
-ggplot(Employment_dimension_summary_long, aes(x = Dimensions, y = Mean_Score, fill = Current_Employment_Status)) +
-geom_bar(stat = "identity", position = "dodge") +
+ggplot(Employment_dimension_summary_long, 
+       aes(x = Dimensions, y = Mean_Score, fill = Current_Employment_Status)) +
+  geom_bar(stat = "identity", position = position_dodge(width = 0.9)) +
   geom_text(
-    aes(label = round(Mean_Score, 2)),
+    aes(label = round(Mean_Score, 2),
+        y = Mean_Score / 2),          # place in middle of bar
     position = position_dodge(width = 0.9),
-    vjust = -0.2, size = 3.2, color = "black"
-  ) + 
-labs(x = "DRA Dimensions", y = "Mean Risk Score", title = "Mean DRA Dimension Risk Scores by Employment Status") + 
-theme_minimal() +
+    color = "white",                  # white text for contrast
+    fontface = "bold",
+    size = 3.5
+  ) +
+  labs(x = "DRA Dimensions", y = "Mean Risk Score", 
+       title = "Mean DRA Dimension Risk Scores by Employment Status") +
+  theme_minimal() +
   theme(legend.position = "right",
         plot.title = element_text(hjust = 0.5, face = "bold"),
-        panel.grid.major = element_blank(), panel.grid.minor = element_blank(), 
-        axis.text.x = element_text(angle = 45, hjust = 1)) + 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        axis.text.x = element_text(angle = 45, hjust = 1)) +
   scale_fill_manual(values = c(
-  "Unemployed"       = "#7F8C8D",     
-  "Full_time"      = "#27AE60",    
-  "Part_time" = "#16A085",  
-  "Temporary_Contract"    = "#8E44AD"      
-))
+    "Unemployed"       = "#6A1B9A",
+    "Full_time"        = "#9A4EAE",
+    "Part_time"        = "#F3E5F5",
+    "Temporary_Contract" = "#7E57C2"
+  ))
 ```
 
 ```{r}
@@ -768,8 +756,14 @@ AH_dimension_summary <- raw_data %>%
     `Uncertainty` = mean(Uncertainty, na.rm = TRUE)
     )
 
+# Transpose: dimensions as rows, groups as columns
+AH_dimension_summary_t <- AH_dimension_summary %>%
+  column_to_rownames(var = "Absorbed_Host_Company") %>% 
+  t() %>% 
+  as.data.frame()
+
 kable(
-  AH_dimension_summary,
+  AH_dimension_summary_t,
   digits = 2,                  
   caption = "Absorbed by Host Company: Mean DRA Dimension Scores"
 )
@@ -793,7 +787,7 @@ theme_minimal() +
         plot.title = element_text(hjust = 0.5, face = "bold"),
         panel.grid.major = element_blank(), panel.grid.minor = element_blank(), 
         axis.text.x = element_text(angle = 45, hjust = 1)) +
-  scale_fill_manual(values = c("No" = "#7F8C8D", "Yes" = "#27AE60"))
+  scale_fill_manual(values = c("No"  = "#6A1B9A", "Yes" = "#9A4EAE"))
 ```
 
 ```{r}
@@ -807,8 +801,14 @@ FS_dimension_summary <- raw_data %>%
     `Uncertainty` = mean(Uncertainty, na.rm = TRUE)
     )
 
+# Transpose: dimensions as rows, groups as columns
+FS_dimension_summary_t <- FS_dimension_summary %>%
+  column_to_rownames(var = "Further_Studies") %>% 
+  t() %>% 
+  as.data.frame()
+
 kable(
-  FS_dimension_summary,
+  FS_dimension_summary_t,
   digits = 2,                  
   caption = "Further Studies: Mean DRA Dimension Scores"
 )
@@ -832,7 +832,7 @@ theme_minimal() +
         plot.title = element_text(hjust = 0.5, face = "bold"),
         panel.grid.major = element_blank(), panel.grid.minor = element_blank(), 
         axis.text.x = element_text(angle = 45, hjust = 1)) + 
-  scale_fill_manual(values = c("No" = "#7F8C8D", "Yes" = "#27AE60"))
+  scale_fill_manual(values = c("No"  = "#6A1B9A", "Yes" = "#9A4EAE"))
 ```
 
 ### Handling Class Imbalance with SMOTE
@@ -1355,6 +1355,23 @@ cm_caret <- confusionMatrix(
 cat("\nConfusion Matrix (Test Set):\n")
 print(cm_caret$table)
 ```
+#### Interpretation of the Confusion Matrix (Test Set)
+
+The confusion matrix shows how the random forest model classified employment status on the held-out test set (using majority vote):
+
+- **Rows** = predicted class (model's guess)  
+
+- **Columns** = actual (true) class  
+
+**Key observations**:
+
+- **Full time** was predicted reasonably well (24 correctly predicted out of 35 actual cases). 
+
+- **Part time** showed the strongest performance (30 correctly predicted out of 35 actual cases).
+
+- **Temporary Contract** had the weakest recall (only 14 correctly predicted out of 35 actual cases). 
+
+- **Unemployed** was moderately identified (22 correctly predicted out of 35 actual cases). 
 
 ```{r}
 # Overall accuracy
@@ -1384,6 +1401,9 @@ multi_auc <- multiclass.roc(
 
 cat("\nMulti-class AUC (macro-averaged):", round(auc(multi_auc), 3), "\n")
 ```
+AUC = 0.875 → very good discrimination ability.
+
+This means that if you pick one person from each class at random, the model assigns higher probability to the correct class 87.5% of the time. In other words, the model is very good at assigning higher probabilities to the correct class, even when it makes classification errors.
 
 ```{r}
 ############################################################
@@ -1480,6 +1500,13 @@ cm_caret <- confusionMatrix(
 cat("\nConfusion Matrix (Test Set):\n")
 print(cm_caret$table)
 ```
+#### Interpretation of the Confusion Matrix (Test Set)
+
+- **In progress**: 29 correctly predicted out of 42 actual cases. 
+
+- **No**: 33 correctly predicted out of 42 actual cases. 
+
+- **Yes**: 23 correctly predicted out of 42 actual cases.  
 
 ```{r}
 # Overall accuracy
@@ -1509,6 +1536,7 @@ multi_auc <- multiclass.roc(
 
 cat("\nMulti-class AUC (macro-averaged):", round(auc(multi_auc), 3), "\n")
 ```
+The model is very good at ranking probabilities correctly (AUC = 0.847) - if you pick one person from each class at random, the model assigns the highest probability to the correct class in 84.7% of cases.
 
 #### Variable Importance
 
@@ -1543,3 +1571,10 @@ randomForest::varImpPlot(
   type = 2                 # type = 2 for Gini. 
 )
 ```
+## Summary and Conclusion
+
+This analysis evaluated the predictive validity of the Dynamic Risk Assessment (DRA) in relation to key employment outcomes. Using synthetic data designed to mirror realistic distributions and patterns from the original data set, we conducted descriptive statistics, visual comparisons, ROC curve evaluations, and random forest modelling.
+
+The DRA provides valuable insights for recruitment and placement, with its composite risk score and dimensions (particularly Emotional Understanding and Principles) effectively distinguishing between outcome groups in many cases. The analysis supports its use in multi-hurdle screening, where it helps identify low-risk candidates for stable employment pathways. Limitations such as range restriction and the synthetic nature of the data mean results should be viewed as directional rather than definitive. Future work could explore integrating DRA scores with additional data sources (e.g., engagement metrics) to enhance long-term predictions. 
+
+
