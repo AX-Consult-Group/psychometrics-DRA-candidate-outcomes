@@ -2,11 +2,11 @@
 
 This repository contains a public example of an analysis evaluating the **predictive validity** of a psychometric risk assessment (DRA) for recruitment. 
 
-### What this analysis shows
-- Descriptive statistics and visual comparisons of risk scores across outcome groups
-- ROC curves to assess discrimination for binary outcomes
-- Predictive modelling using random forests (with SMOTE for class imbalance)
-
+### Methods
+-   **Descriptive statistics** and visual comparisons of risk scores across outcome categories
+-   **SMOTE** oversampling to address class imbalance in predictive modelling
+-   **ROC curves** to assess discrimination ability
+-   **Random forest** modelling for classification and predictor importance
 
 ### Important notes
 - **All data is fully synthetic** — generated to match realistic distributions, correlations, and broad patterns from the original analysis. No real individual, candidate, or client data is included.
