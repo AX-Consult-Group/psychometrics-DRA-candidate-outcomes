@@ -1,6 +1,6 @@
 ---
 title: "Psychometric Risk Assessment: Employment & Placement Outcomes"
-authors: Caitlin Buenk, Tilabo Williamson, and Jurgen Becker - AX Consult Group. 
+authors: Caitlin Buenk, Tilabo Williamson, and Jurgen Becker (Project Lead) - AX Consult Group. 
 format:
   html:
     theme: cosmo
